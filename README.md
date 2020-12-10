@@ -21,7 +21,7 @@ To officially execute the program, just run the Ex1 class, enter the input file 
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-This picture is an example of a bayesian netowrk also in a graph form:
+This picture is an example of a bayesian network (and also the first input.txt file):
 
-![Bayesian-Netowrk](https://user-images.githubusercontent.com/57404551/101762131-b1369c00-3ae5-11eb-97b6-3cada57c90f4.png)
+![Bayes_network_burglary_example](https://user-images.githubusercontent.com/57404551/101762956-c2cc7380-3ae6-11eb-98f1-7a1b265a657b.jpg)
 
