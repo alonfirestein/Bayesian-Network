@@ -23,6 +23,5 @@ To officially execute the program, just run the Ex1 class, enter the input file 
 
 This picture is an example of a bayesian network (and also the first input.txt file):
 
-![Bayes_network_burglary_example](https://user-images.githubusercontent.com/57404551/101762956-c2cc7380-3ae6-11eb-98f1-7a1b265a657b.jpg)
-<img src="https://user-images.githubusercontent.com/57404551/101762956-c2cc7380-3ae6-11eb-98f1-7a1b265a657b.jpg" height="24" width="48">
+<img src="https://user-images.githubusercontent.com/57404551/101762956-c2cc7380-3ae6-11eb-98f1-7a1b265a657b.jpg" height="100" width="100">
 
