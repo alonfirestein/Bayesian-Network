@@ -2,7 +2,7 @@
 
 This project is an implementation of a Bayesian Network and different probabilistic deduction algorithms in java. In the project, three algorithms are implemented and each algorithm is built to answer queries in the form: P(A|B,C).
 
-- The first algorithm is a simple probalistic deduction using the Bayes' theorem.
+- The first algorithm is a simple probalistic deduction.
 - The second algorithm is the [Variable Elimination Algorithm](https://en.wikipedia.org/wiki/Variable_elimination).
 - The third algorithm is the same as the second algorithm, meaning that it also uses the variable elimination algorithm, with the only difference being that the order of the factors is determined in a heuristic method so that the complexity of the algorithm would be more efficient.
 
