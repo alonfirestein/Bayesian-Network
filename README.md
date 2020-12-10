@@ -13,7 +13,8 @@ This project is an implementation of a Bayesian Network and different probabilis
 # Running the program:
 To run the program, you need a text file that is written in the same way as all the input files in the input folder of the repository.
 The text file includes the bayesian network and all of its variables and each variable has its corresponding data (values, parents, CPT).
-At the end of the text file there is a list of queries that the program will answer and execute and will create an output.txt file that contains answer to each query.
+At the end of the text file there is a list of queries that the program will answer and execute and will create an output.txt file that contains an answer to each query.  
+  
 *This program requires that the amounts of spaces, commas and other small punctuation marks be written in the same fashion as the rest of the input files.*
 
 To officially execute the program, just run the Ex1 class, enter the input file name, and the program does the rest.
