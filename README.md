@@ -23,7 +23,7 @@ At the end of the text file there is a list of queries that the program will ans
     
 # Running the program:
 
-Clone the project to your current workspace directory:
+Clone the project to your current workspace directory:  
 `git clone https://github.com/alonfirestein/Bayesian-Network.git`
   
 Open your terminal and navigate to the directory where the project is located, make sure the input files and the src folder are in the same directory.
@@ -35,6 +35,7 @@ Run the command to run the program: `java Ex1`
 And then enter the input file you wish the program to compute.
   
 For Example:  
+  
 ![example](https://user-images.githubusercontent.com/57404551/102539488-6f45c100-40b6-11eb-9fb4-79f2e6e19b45.png)
 
 *The program will always print out the answers to the same output.txt file.*
