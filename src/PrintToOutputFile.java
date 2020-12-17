@@ -34,5 +34,16 @@ public class PrintToOutputFile {
         }
 
     }
+    public PrintToOutputFile(String error) {
+
+        try {
+            FileWriter fileWriter = new FileWriter("output.txt");
+            fileWriter.write(error+"\n");
+            fileWriter.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

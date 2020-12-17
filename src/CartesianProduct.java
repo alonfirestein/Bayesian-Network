@@ -69,10 +69,10 @@ public class CartesianProduct {
     public void ValuesPerVar() {
 
         for (QueryQuestion question : QuestionsList) {
-
             Variable var = question.VariablesInQuestion.get(0);
             String answer = var.ValueForQuery;
             List<String> ValuesList = new ArrayList<>(var.Values);
+            String temp = var.ValueForQuery;
             ValuesList.remove(var.ValueForQuery);
             List<List<Variable>> TheQuestion = new ArrayList<>();
             CartesianProductBuilder(TheQuestion, question.VariablesInQuestion, Graph);
@@ -81,10 +81,18 @@ public class CartesianProduct {
                 var.ValueForQuery = value;
                 CartesianProductBuilder(TheQuestion, question.VariablesInQuestion, Graph);
             }
-            int tag = TheQuestion.size()/2;
-            String algo_1 = new Algorithms().BasicDeduction(TheQuestion, tag);
-            String algo_2 = Algorithms.VariableElimination(question, Graph, 2, answer);
-            String algo_3 = Algorithms.VariableElimination(question, Graph,3, answer);
+            int tag = 0;
+            var.ValueForQuery = temp;
+            for (int i = 0; i < TheQuestion.size(); i++) {
+                if (question.VariablesInQuestion.toString().equals(TheQuestion.get(i).toString())) {
+                    tag = -1;
+                    break;
+                }
+            }
+            int QuerySize = TheQuestion.size()/2;
+            String algo_1 = new Algorithms().BasicDeduction(TheQuestion, QuerySize, tag);
+            String algo_2 = Algorithms.VariableElimination(question, Graph, 2, answer, tag);
+            String algo_3 = Algorithms.VariableElimination(question, Graph,3, answer, tag);
 
 
             if (question.Algorithm == 1) {

@@ -19,13 +19,9 @@ public class Algorithms {
     private double FinalAnswer;
 
 
-
-    public String BasicDeduction(List<List<Variable>> TheQuestion, int QuerySize) {
-
+    public String BasicDeduction(List<List<Variable>> TheQuestion, int QuerySize, int tag) {
 
         StringBuilder result = new StringBuilder();
-        AddCounter = TheQuestion.size() - 1;
-        MulCounter = ((TheQuestion.get(0).size() - 1) * (AddCounter + 1));
 
         double TempAnswer;
         double Answer = 0;
@@ -50,7 +46,10 @@ public class Algorithms {
             Normal += TempNormal;
 
         }
+        AddCounter = TheQuestion.size() - 1;
+        MulCounter = ((TheQuestion.get(0).size() - 1) * (AddCounter + 1));
         FinalAnswer = (Answer / (Answer+Normal));
+        if (tag == -1) AddCounter = MulCounter = 0;
         String AnswerAsString = (df.format(FinalAnswer));
         result.append(AnswerAsString).append(",").append(AddCounter).append(",").append(MulCounter);
         return result.toString();
@@ -75,7 +74,7 @@ public class Algorithms {
     }
 
 
-    public static String VariableElimination(QueryQuestion q, List<Variable> graph, int AlgoNum, String RequiredAnswer) {
+    public static String VariableElimination(QueryQuestion q, List<Variable> graph, int AlgoNum, String RequiredAnswer, int tag) {
 
         AddCounter = 0;
         MulCounter = 0;
@@ -141,6 +140,7 @@ public class Algorithms {
         }
 
         double answer = NormalizeFactors(FactorsList.get(0), q.VariablesInQuestion, RequiredAnswer);
+        if (tag == -1) AddCounter = MulCounter = 0;
         return String.valueOf(df.format(answer)) +
                 ',' +
                 AddCounter +
@@ -313,10 +313,8 @@ public class Algorithms {
             VarsToEliminate.sort((var1, var2) -> { char[] Var1Arr = var1.VarName.toCharArray();
                                                    char[] Var2Arr = var2.VarName.toCharArray();
                                                    int min = Math.min(Var1Arr.length, Var2Arr.length);
-                                                   for (int h = 0; h < min; h++) {
-                                                   if (Var1Arr[h] < Var2Arr[h]) return -1;
-                                                   else if (Var1Arr[h] > Var2Arr[h]) return 1;
-                                                   else return 0;
+                                                   for (int i = 0; i < min; i++) {
+                                                       return Character.compare(Var1Arr[i], Var2Arr[i]);
                                                 }
               return Integer.compare(Var1Arr.length, Var2Arr.length); });
         }
@@ -324,7 +322,6 @@ public class Algorithms {
          else if (AlgoMethod == 3)
             VarsToEliminate = HeuristicMethod(VarsToEliminate, Graph);
          return VarsToEliminate;
-
 
 
     }
@@ -349,11 +346,7 @@ public class Algorithms {
                 }
             }
         }
-        VarsList.sort((var1, var2) -> {
-                                      if (var1.NumberOfNeighbours > var2.NumberOfNeighbours) return 1;
-                                      else if (var1.NumberOfNeighbours < var2.NumberOfNeighbours) return -1;
-                                      else return 0;
-                                      });
+        VarsList.sort(Comparator.comparingInt(var -> var.NumberOfNeighbours));
 
         for (Variable Neighbour : VarsList) {
             for (Variable variable : VarsToEliminate) {

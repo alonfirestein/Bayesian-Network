@@ -69,7 +69,7 @@ public class ReadInputFile {
 
         try {
             File file = new File(FileName);
-            FileReader fileReader = new FileReader("input/"+file);
+            FileReader fileReader = new FileReader(file);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             FileList = new ArrayList<>();
             String NewLine;
@@ -81,11 +81,15 @@ public class ReadInputFile {
 
 
         } catch (FileNotFoundException e) {
-            System.err.println("Can't find the file, please make sure you correctly wrote the file name and it does in fact exist.");
+            String error = "Can't find the file, please make sure you correctly wrote the file name and it does in fact exist.";
+            System.err.println(error);
+            new PrintToOutputFile(error);
             e.printStackTrace();
 
         } catch (IOException e) {
-            System.err.println("Can't read the file");
+            String error = "Can't read the file";
+            System.err.println(error);
+            new PrintToOutputFile(error);
             e.printStackTrace();
         }
 

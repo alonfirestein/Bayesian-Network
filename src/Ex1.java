@@ -5,6 +5,7 @@ public class Ex1 {
 
         ReadInputFile read = new ReadInputFile();
         String FileName = read.ReadFileName();
+        //String FileName = "input.txt";
         read.start(FileName);
         BayesGraph graph = new BayesGraph(read.FileList, read.VariablesIndexList, read.Variables);
         read.Query(graph.Graph);
